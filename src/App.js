@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ApolloProvider } from '@apollo/client';
+import client from './apolloClient'; // Подключение к Apollo Client
+import RegistrationForm from './RegistrationForm';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div>
+        <h1>Форма регистрации</h1>
+        <RegistrationForm />
+      </div>
+    </ApolloProvider>
   );
-}
+};
 
 export default App;
